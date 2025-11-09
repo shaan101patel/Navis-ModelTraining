@@ -1,0 +1,1 @@
+model,prompt_name,query_id,customer_query,response,tone_rating (1-5),clarity_rating (1-5),helpfulness_rating (1-5),response_length (words),notes
