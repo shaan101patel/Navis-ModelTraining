@@ -1,0 +1,26 @@
+# --- Environment and Secrets ---
+.env
+
+# --- Byte-compiled / cache files ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Notebooks checkpoints ---
+.ipynb_checkpoints/
+
+# --- Virtual environments ---
+venv/
+.env/
+
+# --- OS-specific junk ---
+.DS_Store
+Thumbs.db
+
+# --- Results and temp outputs ---
+results/*.csv
+*.log
+
+# --- IDE and editor settings ---
+.vscode/
+.idea/
