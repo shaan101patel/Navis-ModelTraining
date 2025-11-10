@@ -8,7 +8,7 @@ from pathlib import Path
 # ---------------- CONFIG ----------------
 DATA_PATH = "data/cleaned/sample_queries.csv"
 OUTPUT_PATH = "results/benchmark_sample_queries.csv"
-TEMPLATE_PATH = "prompts/template.md"
+TEMPLATE_PATH = "prompts/template_benchmark.csv"
 
 # Start with cheaper models; add more once things look good
 MODELS = [
