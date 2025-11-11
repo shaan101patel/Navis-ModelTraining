@@ -4,21 +4,21 @@ import pandas as pd
 from dotenv import load_dotenv
 from openai import OpenAI
 from pathlib import Path
+from typing import Optional 
 
 # ---------------- CONFIG ----------------
 DATA_PATH = "data/cleaned/sample_queries.csv"
 OUTPUT_PATH = "results/benchmark_sample_queries.csv"
-TEMPLATE_PATH = "prompts/template_benchmark.csv"
+TEMPLATE_PATH = "prompts/templates.md"
+
 
 # Start with cheaper models; add more once things look good
 MODELS = [
     "gpt-4o-mini",
-     "gpt-4o",
-     "gpt-3.5-turbo",
 ]
 
 # To control cost while testing
-MAX_ROWS = 20      # None = use all 50
+MAX_ROWS = 10     
 MAX_PROMPTS = None  # None = use all prompt templates
 # ----------------------------------------
 
@@ -32,7 +32,8 @@ def get_client() -> OpenAI:
     return OpenAI(api_key=api_key)
 
 
-def load_dataset(path: str, max_rows: int | None = None) -> pd.DataFrame:
+def load_dataset(path: str, max_rows: Optional[int] = None) -> pd.DataFrame:
+
     """Load the cleaned dataset of customer queries."""
     df = pd.read_csv(path)
     df = df.dropna(subset=["customer_query"])
@@ -41,7 +42,7 @@ def load_dataset(path: str, max_rows: int | None = None) -> pd.DataFrame:
     return df
 
 
-def load_prompt_templates(path: str, max_prompts: int | None = None):
+def load_prompt_templates(path: str, max_prompts: Optional[int] = None):
     """
     Load system prompt templates from prompts/template.md.
 

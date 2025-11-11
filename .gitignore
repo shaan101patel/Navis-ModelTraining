@@ -125,3 +125,4 @@ def build_hybrid_scores(
 
 if __name__ == "__main__":
     build_hybrid_scores()
+.env

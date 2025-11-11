@@ -10,7 +10,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import os
 
 # ---------- CONFIG ----------
-INPUT_PATH = "results/benchmark_with_human.csv"       # file with human grades
+INPUT_PATH = "results/benchmark_sample_queries.csv"
 OUTPUT_PATH = "results/benchmark_with_sentiment.csv"  # enriched file
 # ----------------------------
 
