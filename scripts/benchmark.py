@@ -15,10 +15,13 @@ TEMPLATE_PATH = "prompts/templates.md"
 # Start with cheaper models; add more once things look good
 MODELS = [
     "gpt-4o-mini",
+    "gpt-4o",
+    "gpt-3.5-turbo", 
 ]
 
+
 # To control cost while testing
-MAX_ROWS = 10     
+MAX_ROWS = 50    
 MAX_PROMPTS = None  # None = use all prompt templates
 # ----------------------------------------
 
