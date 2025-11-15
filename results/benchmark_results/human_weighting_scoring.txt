@@ -1,0 +1,5 @@
+1 = Poor: confusing, robotic, or irrelevant
+2 - Weak: generic or incomplete answer
+3 - Average: acceptable but lacks warmth or precision
+4 - Good: clear, polite, and mostly complete
+5 - Excellent: natural tone, clear steps, concise and empathetic
