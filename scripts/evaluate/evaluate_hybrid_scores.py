@@ -1,10 +1,10 @@
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler 
+from sklearn.preprocessing import MinMaxScaler
 
 
-
-bench_path = "results/benchmark_results/benchmark_with_sentiment.csv"
-human_path = "results/benchmark_results/human_ratings.csv"
+# Update these paths if your repo differs
+bench_path = "results/benchmark/benchmark_results.csv"
+human_path = "results/human_rating/human_ratings.csv"
 
 bench = pd.read_csv(bench_path)
 human = pd.read_csv(human_path)
@@ -22,12 +22,13 @@ df = bench.merge(
 
 print("Merged dataset shape:", df.shape)
 
-
+#Normalize relevant columns
 scaler = MinMaxScaler()
 
 # Human rating is 1–5
-# Latency is normalized
-# Response length is normalized
+# Sentiment already has sentiment_norm in your benchmark — but we recompute for accuracy
+# Latency needs normalization
+# Response length needs normalization
 
 df[["human_norm", "sentiment_norm_final", "latency_norm", "length_norm"]] = scaler.fit_transform(
     df[[
@@ -59,11 +60,11 @@ summary = summary.sort_values("hybrid_score", ascending=False)
 print("\n===== FINAL HYBRID SCORE RANKING =====")
 print(summary)
 
+#save outputs
 
-
-df.to_csv("results/merged_full_evaluation.csv", index=False)
-summary.to_csv("results/final_prompt_ranking.csv", index=False)
+df.to_csv("results/evaluation/merged_full_evaluation.csv", index=False)
+summary.to_csv("results/evaluation/final_prompt_ranking.csv", index=False)
 
 print("\nSaved outputs:")
-print(" - ../results/merged_full_evaluation.csv")
-print(" - ../results/final_prompt_ranking.csv")
+print(" - ../results/evaluation/merged_full_evaluation.csv")
+print(" - ../results/evaluation/final_prompt_ranking.csv")
