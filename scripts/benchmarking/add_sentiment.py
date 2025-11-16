@@ -9,10 +9,9 @@ import pandas as pd
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import os
 
-# ---------- CONFIG ----------
+
 INPUT_PATH = "results/benchmark_sample_queries.csv"
-OUTPUT_PATH = "results/benchmark_with_sentiment.csv"  # enriched file
-# ----------------------------
+OUTPUT_PATH = "results/benchmark_with_sentiment.csv" 
 
 from typing import Optional
 
@@ -41,14 +40,14 @@ def add_sentiment_scores(input_path: str, output_path: str) -> pd.DataFrame:
         lambda s: (s + 1) / 2 if pd.notna(s) else None
     )
 
-    # Optionally add length-based metric
+    # Adds the length-based metric
     df["response_length"] = df["model_response"].apply(
         lambda x: len(str(x).split()) if isinstance(x, str) else 0
     )
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     df.to_csv(output_path, index=False)
-    print(f"✅ Saved sentiment-enriched file → {output_path}")
+    print(f"Saved sentiment-enriched file → {output_path}")
     return df
 
 
