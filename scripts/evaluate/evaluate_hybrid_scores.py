@@ -42,8 +42,8 @@ df[["human_norm", "sentiment_norm_final", "latency_norm", "length_norm"]] = scal
 df["hybrid_score"] = (
     0.55 * df["human_norm"] +                # human judgment dominates
     0.20 * df["sentiment_norm_final"] +      # tone/emotional quality
-    0.15 * (1 - df["latency_norm"]) +        # faster = better
-    0.10 * (1 - df["length_norm"])           # shorter = better (brevity)
+    0.20 * (1 - df["latency_norm"]) +        # faster = better
+    0.05 * (1 - df["length_norm"])           # shorter = better (brevity)
 )
 
 #Summary of results
