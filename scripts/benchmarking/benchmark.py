@@ -6,13 +6,13 @@ from openai import OpenAI
 from pathlib import Path
 from typing import Optional 
 
-# ---------------- CONFIG ----------------
+
 DATA_PATH = "data/cleaned/sample_queries.csv"
 OUTPUT_PATH = "results/benchmark_sample_queries.csv"
 TEMPLATE_PATH = "prompts/templates.md"
 
 
-# Start with cheaper models; add more once things look good
+
 MODELS = [
     "gpt-4o-mini",
     "gpt-4o",
@@ -23,7 +23,7 @@ MODELS = [
 # To control cost while testing
 MAX_ROWS = 50    
 MAX_PROMPTS = None  # None = use all prompt templates
-# ----------------------------------------
+
 
 
 def get_client() -> OpenAI:
@@ -87,7 +87,7 @@ def load_prompt_templates(path: str, max_prompts: Optional[int] = None):
             name = first.lstrip("#").strip()
             text = "\n".join(lines[1:]).strip()
         else:
-            # no explicit name; generate one
+           
             name = f"template_{len(templates) + 1}"
             text = "\n".join(lines).strip()
 
